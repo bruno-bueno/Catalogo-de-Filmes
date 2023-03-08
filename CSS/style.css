@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-brand img {
+	height: 5vh;
+}
+
+#lista-filmes{
+	display:flex;
+	justify-content:start;
+	flex-wrap: wrap;
+	padding:2rem;
+}
