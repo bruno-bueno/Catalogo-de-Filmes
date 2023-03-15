@@ -58,6 +58,21 @@ class Filme{
         card.appendChild(cardBody);
         cardBody.appendChild(hCardTitle);
         cardBody.appendChild(divDetalhes);
+        
+        divClassificacao.appendChild(document.createTextNode(this.classificacao));
+        divDetalhes.appendChild(divGenero);
+        divDetalhes.appendChild(divAnoProducao);
+        divDetalhes.appendChild(divClassificacao);
+        card.appendChild(imgCartaz);
+        card.appendChild(cardBody);
+        cardBody.appendChild(hCardTitle);
+        cardBody.appendChild(divDetalhes);
+
+        this.setBtnDetalhes();
+        cardBody.appendChild(this.getBtnDetalhes());
+
+        return card;
+
         return card;
       }
 
@@ -65,7 +80,7 @@ class Filme{
         this.btnDetalhes=document.createElement("button");
         this.btnDetalhes.appendChild(document.createTextNode("Detalhes"));
         this.btnDetalhes.setAttribute("id",this.id);
-        this.btnDetalhes.setAttribute("class","btnDetalhesFilme");
+        this.btnDetalhes.setAttribute("class","btn btn-primary btnDetalhesFilme");
 
       }
 
@@ -77,18 +92,3 @@ class Filme{
       
 
 }
-
-
-/*divClassificacao.appendChild(document.createTextNode(this.classificacao));
-divDetalhes.appendChild(divGenero);
-divDetalhes.appendChild(divAnoProducao);
-divDetalhes.appendChild(divClassificacao);
-card.appendChild(imgCartaz);
-card.appendChild(cardBody);
-cardBody.appendChild(hCardTitle);
-cardBody.appendChild(divDetalhes);
-
-this.setBtnDetalhes();
-cardBody.appendChild(this.getBtnDetalhes());
-
-return card;*/
