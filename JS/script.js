@@ -3,9 +3,9 @@ let btnBuscarFilme = document.querySelector("#btn-buscar-filme");
 
 
 btnBuscarFilme.onclick = async () => {
-    if(inputBuscarFilme.value.length > 0){
+  if(inputBuscarFilme.value.length > 0){
 		let filmes = new Array();
-        fetch("http://www.omdbapi.com/?i=tt3896198&apikey=88ab635&s="+inputBuscarFilme.value)
+    fetch("http://www.omdbapi.com/?apikey=88ab635&s="+inputBuscarFilme.value)
 		.then((resp)=> resp.json())
 		.then((resp)=> {
 			resp.Search.forEach((item)=>{
@@ -30,9 +30,11 @@ btnBuscarFilme.onclick = async () => {
 			
 		})
 		
-    }
-    return false;
+  }
+  return false;
 }
+
+let genero = ["Ação","Aventura","Ficção cientifica"];
 
 
 
