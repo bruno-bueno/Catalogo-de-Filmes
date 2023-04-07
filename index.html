@@ -7,6 +7,7 @@
     <title>Catalogo de Filmes</title>
     <link rel="stylesheet" href="./CSS/style.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 	<script src="./JS/classe.js"></script>
 </head>
 <body>
@@ -25,7 +26,7 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Favoritos</a>
+                            <a class="nav-link active" href="#" id="filmesFavoritos">Favoritos</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,7 +44,7 @@
                     </ul>
                     <form class="d-flex">
                         <input class="form-control me-2" id="input-buscar-filme" type="search" placeholder="Buscar filme" aria-label="Search">
-                        <button class="btn btn-outline-success" id="btn-buscar-filme" type="submit">Buscar</button>
+                        <button class="btn btn-outline-success" id="btn-buscar-filme" type="button">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -51,14 +52,44 @@
     </header>
 
     <main>
-		<div id="lista-filmes">
-			
-		</div>
+		<div id="carrossel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./Midia/avatar.jpg" class="d-block w-100" alt="avatar" style="height: 60vh; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="./Midia/carros.jpg" class="d-block w-100" alt="carros" style="height: 60vh; object-fit: cover;">
+              </div>
+              <div class="carousel-item">
+                <img src="./Midia/transformers.jpg" class="d-block w-100" alt="transformers" style="height: 60vh; object-fit: cover;">
+              </div>
+            </div>
+        </div>
 
-		<div id="mostrar-filme">
+        <div id="lista-filmes">
 			
 		</div>
-    
+        <!-- <div id="mostrar-filme">
+            <a id="btnFechar" onclick="fecharBotao()">x</a>
+            <div id="card-filme"></div>
+        </div> -->
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-3" id="tituloDetalhes"></h1>
+        </div>
+        <div class="modal-body" id="card-filme">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" id="salvarFilme">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
     </main>
 </body>
 <script src="./JS/script.js"></script>

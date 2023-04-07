@@ -13,7 +13,7 @@ class Diretor{
 }
  
 class Filme{
-    constructor(id,titulo,ano,genero,duracao,cartaz,sinopse,direcao,elenco,classificacao,avaliacao,btnDetalhes){
+    constructor(id,titulo,ano,genero,duracao,cartaz,sinopse,direcao,elenco,classificacao,avaliacao,btnDetalhes,){
         this.id = id;
         this.titulo = titulo;
         this.ano = ano;
@@ -26,7 +26,6 @@ class Filme{
         this.classificacao = classificacao;
         this.avaliacao = avaliacao;
         this.btnDetalhes=null;
-
     }
 
     getCard = () => {
@@ -73,7 +72,6 @@ class Filme{
 
         return card;
 
-        return card;
       }
 
       setBtnDetalhes=()=>{
@@ -81,12 +79,71 @@ class Filme{
         this.btnDetalhes.appendChild(document.createTextNode("Detalhes"));
         this.btnDetalhes.setAttribute("id",this.id);
         this.btnDetalhes.setAttribute("class","btn btn-primary btnDetalhesFilme");
+        this.btnDetalhes.setAttribute("style","display: flex; margin: 0 auto;")
+        this.btnDetalhes.setAttribute("data-bs-toggle", "modal");
+        this.btnDetalhes.setAttribute("data-bs-target", "#exampleModal");
+
 
       }
 
       getBtnDetalhes=()=>{
-        return this.btnDetalhes;
 
+        return this.btnDetalhes;
+      }
+
+      getDetalhesFilme = () =>{
+
+        let card = document.querySelector('#card-filme');
+
+        let row = document.createElement('div');
+        row.classList.add('row');
+
+        let colbanner = document.createElement('div');
+        colbanner.classList.add('col-md-4');
+
+        let banner = document.createElement('img');
+        banner.src = this.cartaz;
+        banner.classList.add('img-fluid');
+        banner.alt = 'Imagem do Filme';
+
+        colbanner.appendChild(banner);
+
+        let colDataElement = document.createElement('div');
+        colDataElement.classList.add('col-md-8');
+
+        let cardSinopse = document.createElement('p');
+        cardSinopse.textContent = this.sinopse;
+
+        let cardAvaliacao = document.createElement('p');
+        cardAvaliacao.textContent = this.avaliacao;
+
+        let cardDirecao = document.createElement('p');
+        cardDirecao.textContent = this.direcao;
+
+        let cardDuracao = document.createElement('p');
+        cardDuracao.textContent = this.duracao;
+
+        let cardGenero = document.createElement('p');
+        cardGenero.textContent = this.genero;
+
+        let cardClassificacao = document.createElement('p');
+        cardClassificacao.textContent = this.classificacao;
+
+        let cardAno = document.createElement('p');
+        cardAno.textContent = this.ano;
+
+        colDataElement.appendChild(cardSinopse);
+        colDataElement.appendChild(cardAvaliacao);
+        colDataElement.appendChild(cardDirecao);
+        colDataElement.appendChild(cardDuracao);
+        colDataElement.appendChild(cardGenero);
+        colDataElement.appendChild(cardClassificacao);
+        colDataElement.appendChild(cardAno);
+
+        row.appendChild(colbanner);
+        row.appendChild(colDataElement);
+
+        card.appendChild(row);
       }
 
       
